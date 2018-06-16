@@ -1,0 +1,10 @@
+use schema_data;
+!echo starting script unix_timestamp; 
+SELECT from_unixtime(unix_timestamp()); 
+select * from table_name where column = 'value'  limit 100;
+select * from table_name where column = 'value'  limit 100;
+select * from table_name where column = 'value'  limit 100;
+select * from table_name where column = 'value'  limit 100;
+!echo finishing script unix_timestamp; 
+SELECT from_unixtime(unix_timestamp()); 
+!echo done;

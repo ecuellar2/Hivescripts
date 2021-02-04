@@ -12,3 +12,6 @@ GRANT SELECT ON TABLE default.table_name TO `person@email.com`
 SHOW GRANT `person@email.com` on TABLE default.table_name
 REVOKE SELECT ON default.table_name FROM `person@email.com`
 If admin revokes SELECT privilege on db, user will be able to access table1 if there is an explicit GRANT on table1
+----------------------------
+
+sql (" EXPLAIN FORMATTED querygoeshere  ").show(false)

@@ -15,3 +15,17 @@ If admin revokes SELECT privilege on db, user will be able to access table1 if t
 ----------------------------
 
 sql (" EXPLAIN FORMATTED querygoeshere  ").show(false)
+----------------------------
+def analyzeTables(databaseAndTable: String)
+{
+  //sql("DROP TABLE IF EXISTS table_name");
+  sql("CREATE TABLE IF NOT EXISTS  table_name USING DELTA LOCATION '/mnt/folder' ")
+  sql("ANALYZE TABLE table_name COMPUTE STATISTICS") //help query optimizer collect stats about table, can be scheduled daily 
+  sql("REFRESH TABLE table_name")  // use db name.db if not in default db, refreshes delta cache for the table
+  sql("UNCACHE TABLE table_name")
+  sql("FSCK REPAIR TABLE table_name ")
+  sql("Cache select * from table_name where filterdate < xxx ");  // use for delta cache
+  sql("explain formatted " + query).show(false) // show query in a clean format with detailed info
+  sql("optimize  table_name ");  // compact files to 1gb
+
+}

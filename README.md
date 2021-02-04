@@ -1,2 +1,2 @@
-# Hivescripts
-place for hql scripts 
+# Sql spark
+place for scripts 
